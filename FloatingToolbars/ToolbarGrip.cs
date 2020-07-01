@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,6 +7,9 @@ namespace FloatingToolbars
 {
     public partial class ToolbarGrip : UserControl
     {
+        [Category("Appearance")]
+        public bool Invisible { get; set; }
+
         public ToolbarGrip()
         {
             InitializeComponent();
@@ -17,10 +21,11 @@ namespace FloatingToolbars
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            if (Invisible) return;
             base.OnPaint(e);
-            Graphics g = e.Graphics;
 
-            ControlPaint.DrawBorder3D(g, new Rectangle(2, 2, 3, ClientSize.Height - 4), Border3DStyle.RaisedInner);
+            Graphics g = e.Graphics;
+            ControlPaint.DrawBorder3D(g, new Rectangle(2, 2, ClientSize.Width - 4, ClientSize.Height - 4), Border3DStyle.RaisedInner);
         }
 
         private Point lastLocation;

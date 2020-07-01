@@ -35,6 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.DoubleBuffered = true;
             this.Name = "ToolbarGrip";
             this.Size = new System.Drawing.Size(7, 22);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ToolbarGrip_MouseDown);
